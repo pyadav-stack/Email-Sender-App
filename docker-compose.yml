@@ -1,13 +1,15 @@
-version: "3.8"
-
 services:
   backend:
-    build: ./EmailSender  # Path to backend Dockerfile
+    build:
+      context: ./EmailSender
+      dockerfile: Dockerfile  # Ensure file name matches
     ports:
       - "8080:8080"
-  
+
   frontend:
-    build: ./email-sender-frontend # Path to frontend Dockerfile
+    build:
+      context: ./email-sender-frontend
+      dockerfile: Dockerfile  # Ensure file name matches
     ports:
       - "3000:3000"
     depends_on:
